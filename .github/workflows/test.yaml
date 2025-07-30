@@ -1,11 +1,19 @@
 name: Test workflow
 
-on: 
-  workflow_dispatch :
+on:
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      MY_NAME: "STNAM"
     steps:
-    - name : Print trigger message
-      run: echo "This workflow trigger manually"
+      - name: Show info
+        run: |
+          echo  "ME - ${{env.MY_NAME}}"
+          echo  "Repo - ${{github.repository}}"
+          echo  "Actor - ${{github.repository}}"
+          echo  "Branch or Tag - ${{github.ref}}"
+          echo  "Triggered event  - ${{github.event_name}}"
+          echo  "name of workflow  - ${{github.workflow}}"
