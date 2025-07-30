@@ -16,6 +16,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            git clone  https://github.com/Satnammeena2004/learn-ci-cd.git
+            if [ ! -d "learn-ci-cd" ]; then
+              git clone https://github.com/Satnammeena2004/learn-ci-cd.git
+            fi
             cd learn-ci-cd
-            ls
+            git pull origin main
+            npm install
+            npm run build
+            pm2 restart simple-server || pm2 start dist/index.js --name simple-server
