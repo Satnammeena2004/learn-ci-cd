@@ -1,0 +1,20 @@
+name: SSH to EC2
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into EC2 and run commands
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            whoami
+            ls -al

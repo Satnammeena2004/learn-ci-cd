@@ -17,3 +17,6 @@ jobs:
           echo  "Branch or Tag - ${{github.ref}}"
           echo  "Triggered event  - ${{github.event_name}}"
           echo  "name of workflow  - ${{github.workflow}}"
+          touch h.txt
+          ls
+          
