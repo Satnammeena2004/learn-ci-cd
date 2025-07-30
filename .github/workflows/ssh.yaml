@@ -19,9 +19,19 @@ jobs:
             if [ ! -d "learn-ci-cd" ]; then
               git clone https://github.com/Satnammeena2004/learn-ci-cd.git
             fi
+            echo "======pwd========="
             pwd
             ls
+            echo "======changing the directory========="
             cd learn-ci-cd
+            echo "======after changing the directory========="
+            pwd
+            echo "======ls in learn-ci-cd========="
+            ls
+            echo "====== checking version of npm ========="
+            npm -v
+            echo "====== checking version of node ========="
+            node -v
             git pull origin main
             npm install
             npm run build
