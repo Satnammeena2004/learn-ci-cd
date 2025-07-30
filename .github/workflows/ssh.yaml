@@ -20,22 +20,8 @@ jobs:
               git clone https://github.com/Satnammeena2004/learn-ci-cd.git
             fi
             export PATH=$HOME/.nvm/versions/node/v22.17.1/bin:$PATH
-            echo "======pwd========="
-            pwd
-            ls
-            echo "======changing the directory========="
             cd learn-ci-cd
-            echo "======after changing the directory========="
-            pwd
-            echo "======ls in learn-ci-cd========="
-            ls
-            echo "====== checking version of npm ========="
-            $PATH
-            echo "====== checking version of npm ========="
-            npm -v
-            echo "====== checking version of node ========="
-            node -v
             git pull origin main
             npm install
             npm run build
-            npm start
+            pm2 restart simple-server || pm2 start dist/index.js --name simple-server
