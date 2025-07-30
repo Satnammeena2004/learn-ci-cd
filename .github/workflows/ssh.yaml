@@ -19,6 +19,7 @@ jobs:
             if [ ! -d "learn-ci-cd" ]; then
               git clone https://github.com/Satnammeena2004/learn-ci-cd.git
             fi
+            export PATH=$HOME/.nvm/versions/node/v22.17.1/bin:$PATH
             echo "======pwd========="
             pwd
             ls
