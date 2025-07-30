@@ -16,5 +16,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            whoami
-            ls -al
+            git clone  https://github.com/Satnammeena2004/learn-ci-cd.git
+            cd learn-ci-cd
+            ls
