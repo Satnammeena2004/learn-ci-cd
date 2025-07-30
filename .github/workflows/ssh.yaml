@@ -29,6 +29,8 @@ jobs:
             echo "======ls in learn-ci-cd========="
             ls
             echo "====== checking version of npm ========="
+            $PATH
+            echo "====== checking version of npm ========="
             npm -v
             echo "====== checking version of node ========="
             node -v
