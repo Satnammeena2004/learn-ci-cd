@@ -1,0 +1,9 @@
+name: Test workflow
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    run-on: ubuntu-latest
+    steps:
+      - run: echo "This workflow trigger manually"
