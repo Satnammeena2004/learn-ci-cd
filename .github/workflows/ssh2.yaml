@@ -1,4 +1,4 @@
-name : SSH in EC2
+name : SSH in EC2 with ME
 on: 
   push:
      branches:
@@ -20,6 +20,6 @@ jobs:
          - name: Run commands on Remote server
            run: |
             cd ~/.ssh
-            ssh -i "my_key.pem" {{secrets.USERNAME}}@${{secrets.HOST}}
+            ssh -i "my_key.pem" ${{secrets.USERNAME}}@${{secrets.HOST}}
             ls
             
