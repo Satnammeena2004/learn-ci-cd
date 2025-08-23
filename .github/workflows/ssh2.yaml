@@ -1,0 +1,25 @@
+name : SSH in EC2
+on: 
+  push:
+     branches:
+         - main
+
+jobs:
+    deploy:
+       runs-on : ubuntu-latest
+       steps :
+         - name: Checkout code
+           uses: actions/checkout@v4
+         - name: SSH setup
+           run: |
+              mkdir -p ~/.ssh
+              echo "${{ secrets.SSH_KEY }}" > ~/.ssh/my_key.pem
+              chmod 600 ~/.ssh/my_key.pem
+              ssh-keyscan -p ${{secrets.PORT}} ${{secrets.HOST}} >> ~/.ssh/known_hosts
+              
+         - name: Run commands on Remote server
+           run: |
+            cd ~/.ssh
+            ssh -i "my_key.pem" {{secrets.USERNAME}}@${{secrets.HOST}}
+            ls
+            
