@@ -20,5 +20,7 @@ jobs:
          - name: Run commands on Remote server
            run: |
             cd ~/.ssh
-            ssh -p ${{ secrets.PORT }} ${{ secrets.USERNAME }}@${{ secrets.HOST } "ls"
+            ssh -p ${{ secrets.PORT }} ${{ secrets.USERNAME }}@${{ secrets.HOST } "
+            ls 
+            "
             
